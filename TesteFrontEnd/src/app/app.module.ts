@@ -7,6 +7,9 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ClientListComponent } from './pages/side-page/client-list/client-list.component';
 import { ClientInfoComponent } from './pages/side-page/client-info/client-info.component';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDatabase } from './in-memory-database';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +19,8 @@ import { ClientInfoComponent } from './pages/side-page/client-info/client-info.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDatabase)
   ],
   providers: [],
   bootstrap: [AppComponent]

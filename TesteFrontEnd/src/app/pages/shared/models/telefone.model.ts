@@ -1,8 +1,8 @@
 export class Telefone {
     constructor(
         public id?: number,
-        public pais?: string,
-        public area?: string,
-        public numero?: string
+        public pais?: number,
+        public area?: number,
+        public numero?: number
     ) { }
 }
