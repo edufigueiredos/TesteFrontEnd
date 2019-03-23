@@ -1,3 +1,12 @@
-<p (click)="navegar()">
-  Informações
-</p>
+<div class="search">
+  <input type="text" class="search-bar" value="Paulo">
+  <div class="search-icon"></div>
+</div>
+
+<div class="client-container">
+  <div class="client-container-info" *ngFor="let client of clients">
+    <span class="email">{{client.email}}</span>
+    <span class="name">{{client.nome}}</span>
+    <span class="cpf">{{client.cpf}}</span>
+  </div>
+</div>

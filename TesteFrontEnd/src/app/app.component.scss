@@ -1,15 +1,27 @@
+$side-page-background: #f4f5f7;
+$main-page-background: #fff;
+$border-left-side-page: #ccc;
+@mixin container-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .container-pages {
-    display: flex;
-    width: 100vw;
-    min-height: 100vh;
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
 
-    .side-page {
-        width: 30%;
-        background-color: #ccc;
-    }
+  .side-page {
+    width: 25%;
+    background-color: $side-page-background;
+    box-sizing: border-box;
+    border-right: 1px solid $border-left-side-page;
+    @include container-flex-column();
+  }
 
-    .main-page {
-        width: 70%;
-        background-color: #aaa;
-    }
+  .main-page {
+    width: 75%;
+    background-color: $main-page-background;
+    @include container-flex-column();
+  }
 }

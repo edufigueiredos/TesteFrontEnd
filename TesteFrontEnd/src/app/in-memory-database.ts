@@ -1,13 +1,8 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 import { Cliente } from './pages/shared/models/cliente.model';
-import { Endereco } from './pages/shared/models/endereco.model';
-import { Loja } from './pages/shared/models/loja.model';
-import { Nota } from './pages/shared/models/nota.model';
-import { Pontos } from './pages/shared/models/pontos.model';
-import { Telefone } from './pages/shared/models/telefone.model';
 
-export class InMemoryDatabase implements: InMemoryDbService {
+export class InMemoryDatabase implements InMemoryDbService {
     createDb() {
         const cliente: Cliente[] = [
             { codigo: 1, nome: 'Paulo Santos de Almeida', email: 'paulo.santos@email.com', cpf: 12341233409 },
