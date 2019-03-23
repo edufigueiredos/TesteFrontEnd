@@ -1,8 +1,9 @@
 <div class="search">
-  <input type="text" class="search-bar" value="Paulo">
-  <div class="search-icon"></div>
+  <input type="search" class="search-bar" value="Paulo" (keyup)="filterClients($event.target.value)">
+  <div class="search-icon">
+    <img src="../../../../assets/baseline-search-24px.svg" alt="Botão de busca">
+  </div>
 </div>
-
 <div class="client-container">
   <div class="client-container-info" *ngFor="let client of clients">
     <span class="email">{{client.email}}</span>

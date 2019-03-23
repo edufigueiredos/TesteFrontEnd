@@ -11,6 +11,7 @@ import { ClienteService } from '../../shared/services/client.service';
 export class ClientListComponent implements OnInit {
 
   private clients: Cliente[];
+  private filter: string = '';
 
   constructor(private clienteService: ClienteService) { }
 
@@ -21,7 +22,6 @@ export class ClientListComponent implements OnInit {
   loadClients() {
     this.clienteService.getAll().subscribe((client) => {
       this.clients = client;
-      console.log(this.clients);
     });
   }
 

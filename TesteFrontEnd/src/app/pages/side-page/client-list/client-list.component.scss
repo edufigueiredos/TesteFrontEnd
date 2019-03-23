@@ -19,8 +19,7 @@ $text-color-cpf: #6d6f6e;
   &-info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
+    place-content: center;
     padding: 15px 0;
     @include border();
 
@@ -30,7 +29,7 @@ $text-color-cpf: #6d6f6e;
 
     .email {
       color: $text-color-email;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
 
     .name {
@@ -67,6 +66,8 @@ $text-color-cpf: #6d6f6e;
     }
 
     &-icon {
+        display: flex;
+        place-content: center;
         border: 1px solid $border-color;
         border-top: 0;
         border-left: 0;
