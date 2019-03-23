@@ -1,0 +1,15 @@
+.container-pages {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+
+    .side-page {
+        width: 30%;
+        background-color: #ccc;
+    }
+
+    .main-page {
+        width: 70%;
+        background-color: #aaa;
+    }
+}
