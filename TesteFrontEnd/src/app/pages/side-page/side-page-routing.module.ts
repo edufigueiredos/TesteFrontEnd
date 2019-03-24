@@ -5,7 +5,7 @@ import { SidePageComponent } from './side-page.component';
 import { SidePageResolver } from './side-page.resolver';
 
 const routes: Routes = [
-  { path: '', component: SidePageComponent, outlet: 'sidePage',resolve: {clients: SidePageResolver} }
+  { path: '', component: SidePageComponent, outlet: 'sidePage', resolve: {clients: SidePageResolver} }
 ];
 
 @NgModule({

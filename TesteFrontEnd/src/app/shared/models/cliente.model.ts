@@ -4,7 +4,7 @@ import { Pontos } from './pontos.model';
 
 export class Cliente {
     constructor(
-        public codigo?: number,
+        public id?: number,
         public nome?: string,
         public email?: string,
         public cpf?: number,

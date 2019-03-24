@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
-import { map, catchError, flatMap } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 import { Cliente } from './../models/cliente.model';
 
 @Injectable({ providedIn: 'root' })
 export class ClienteService {
 
-    private apiPath: string = 'api/cliente';
+    private apiPath = 'api/cliente';
 
     constructor(private http: HttpClient) { }
 
@@ -21,7 +21,7 @@ export class ClienteService {
     }
 
     getById(codigo: number): Observable<Cliente> {
-        const url = `${this.apiPath}/codigo`;
+        const url = `${this.apiPath}/${codigo}`;
         return this.http.get(url).pipe(
             catchError(this.handleError),
             map(this.jsonDataToClient)

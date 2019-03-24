@@ -3,7 +3,7 @@
     <span class="no-clients">Cliente não encontrado</span>
   </div>
 
-  <div class="client-container-info" *ngFor="let client of clients" (click)="mostrarNoConsole(client.nome)">
+  <div class="client-container-info" *ngFor="let client of clients" (click)="sendIdToSidePage(client.id)">
     <span class="email">{{client.email}}</span>
     <span class="name">{{client.nome}}</span>
     <span class="cpf">{{client.cpf}}</span>
