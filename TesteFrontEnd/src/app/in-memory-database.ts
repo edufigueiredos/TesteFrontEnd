@@ -1,6 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
-import { Cliente } from './pages/shared/models/cliente.model';
+import { Cliente } from 'src/app/shared/models/cliente.model';
 
 export class InMemoryDatabase implements InMemoryDbService {
     createDb() {

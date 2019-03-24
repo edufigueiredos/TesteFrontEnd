@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Cliente } from '../../shared/models/cliente.model';
-import { ClienteService } from '../../shared/services/client.service';
+import { Cliente } from 'src/app/shared/models/cliente.model';
+import { ClienteService } from '../../../shared/services/client.service';
 
 @Component({
   selector: 'app-client-list',
@@ -10,19 +10,15 @@ import { ClienteService } from '../../shared/services/client.service';
 })
 export class ClientListComponent implements OnInit {
 
-  private clients: Cliente[];
-  private filter: string = '';
+  @Input() clients: Cliente[];
 
-  constructor(private clienteService: ClienteService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.loadClients();
   }
 
-  loadClients() {
-    this.clienteService.getAll().subscribe((client) => {
-      this.clients = client;
-    });
+  mostrarNoConsole(nome) {
+    console.log(nome);
   }
 
   // navegar() {

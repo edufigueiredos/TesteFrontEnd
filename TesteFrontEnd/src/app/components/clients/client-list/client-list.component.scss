@@ -1,0 +1,58 @@
+$border-color: #e6e6e6;
+$text-color-blue: #1e2b34;
+$text-color-gray: #666;
+
+@mixin border() {
+  border: 1px solid;
+  border-color: $border-color;
+  border-image-slice: 50;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.client-container {
+
+    padding: 0 25px;
+
+    :hover {
+      background-color: #eeeeee;
+      cursor: pointer;
+    }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    padding: 15px 0;
+    @include border();
+
+    span {
+      line-height: 1.7rem;
+    }
+
+    .no-clients {
+      text-align: center;
+      color: $text-color-gray;
+      font-style: italic;
+      line-height: 3rem;
+    }
+
+    .email {
+      color: $text-color-gray;
+      font-size: 0.9rem;
+    }
+
+    .name {
+      color: $text-color-blue;
+      font-weight: bolder;
+      font-style: italic;
+    }
+
+    .cpf {
+      color: $text-color-gray;
+      font-size: 0.9rem;
+    }
+
+  }
+}

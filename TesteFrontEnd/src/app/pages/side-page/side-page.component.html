@@ -1,0 +1,7 @@
+<div class="search">
+  <input type="search" class="search-bar" (keyup)="filter = $event.target.value">
+  <div class="search-icon">
+    <img src="../../../../assets/baseline-search-24px.svg" alt="Botão de busca">
+  </div>
+</div>
+<app-client-list [clients]="clients | filterByName: filter"></app-client-list>
