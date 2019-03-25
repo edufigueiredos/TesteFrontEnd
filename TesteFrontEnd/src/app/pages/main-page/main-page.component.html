@@ -1,3 +1,31 @@
-<p>
-  main-page works!
-</p>
+<div class="main-page-container">
+  <p class="title">Fidelidade</p>
+
+  <ul class="list tabs">
+    <li>TRANSAÇÕES</li>
+    <li>BENEFÍCIOS</li>
+    <li>HISTÓRICO</li>
+  </ul>
+
+  <ul class="list value">
+    <li>
+      <p class="balance-title">Saldo</p>
+      <p class="balance-value">{{balance | number}}</p>
+    </li>
+    <li>
+      <p class="balance-title">Histórico</p>
+      <p class="balance-history">{{history | number}}</p>
+    </li>
+    <li>
+      <p class="balance-title">Utilizados</p>
+      <p class="balance-used">{{used | number}}</p>
+    </li>
+    <li>
+      <p class="balance-title">Perdidos</p>
+      <p class="balance-lost">{{lost | number}}</p>
+    </li>
+  </ul>
+
+  <app-transaction></app-transaction>
+
+</div>

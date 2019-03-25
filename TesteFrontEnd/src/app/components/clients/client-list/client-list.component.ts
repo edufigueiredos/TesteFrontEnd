@@ -19,14 +19,4 @@ export class ClientListComponent {
   sendIdToSidePage(id: number) {
     this.sendIdEvent.emit(id);
   }
-
-  // navegar() {
-  //   this.router.navigate(
-  //     [ { outlets: {
-  //           primary: ['index'],
-  //           sidePage: ['info']
-  //         } } ]
-  //   );
-  // }
-
 }

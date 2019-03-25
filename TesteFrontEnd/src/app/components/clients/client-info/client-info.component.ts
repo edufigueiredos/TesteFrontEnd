@@ -1,4 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
+
+import { ClienteService } from 'src/app/shared/services/client.service';
+import { Cliente } from 'src/app/shared/models/cliente.model';
 
 @Component({
   selector: 'app-client-info',
@@ -8,6 +11,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class ClientInfoComponent {
 
   @Output() clearClientFilterEvent = new EventEmitter<void>();
+  @Input() private clientInfo: Cliente;
 
   constructor() { }
 

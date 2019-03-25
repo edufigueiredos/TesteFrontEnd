@@ -4,6 +4,7 @@ $border-left-side-page: #ccc;
 @mixin container-flex-column {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .container-pages {

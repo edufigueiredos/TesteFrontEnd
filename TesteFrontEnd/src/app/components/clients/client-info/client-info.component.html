@@ -1,3 +1,47 @@
-<p (click)="clearClientFilter()">
-  client-info works!
-</p>
+<div class="client-info-container">
+  <div class="client-info-header border">
+    <div class="back-icon" (click)="clearClientFilter()">
+      <img src="../../../../assets/baseline-arrow_back-24px.svg" alt="Voltar">
+    </div>
+
+    <div class="client-main-info">
+      <div class="photo">
+        <img [src]="clientInfo.thumb" [alt]="clientInfo.nome" *ngIf="clientInfo.thumb" >
+      </div>
+      <p class="name">{{clientInfo.nome}}, {{clientInfo.idade}}</p>
+      <p class="data">CPF: {{clientInfo.cpf}}</p>
+    </div>
+  </div>
+
+  <div class="client-sub-info border">
+    <p class="title">OBSERVAÇÕES IMPORTANTES</p>
+    <p class="description">{{clientInfo.obs}}</p>
+  </div>
+
+  <div class="client-sub-info border">
+    <p class="title">E-MAIL</p>
+    <p class="description">{{clientInfo.email}}</p>
+  </div>
+
+  <div class="client-sub-info border">
+    <p class="title">TELEFONE</p>
+    <p class="description">
+        +{{clientInfo.telefone.pais}}
+        {{clientInfo.telefone.area}}
+        {{clientInfo.telefone.numero}}
+    </p>
+  </div>
+
+  <div class="client-sub-info border">
+    <p class="title">ENDEREÇO</p>
+    <p class="description">
+        {{clientInfo.endereco.tipo}}
+        {{clientInfo.endereco.logradouro}},
+        {{clientInfo.endereco.numero}} -
+        {{clientInfo.endereco.bairro}}<br>
+        {{clientInfo.endereco.cidade}} -
+        {{clientInfo.endereco.estado}}
+    </p>
+  </div>
+
+</div>

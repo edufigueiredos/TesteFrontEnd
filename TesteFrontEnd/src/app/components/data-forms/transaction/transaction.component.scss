@@ -1,0 +1,185 @@
+$border-color: #e6e6e6;
+$text-color-blue: #1e2b34;
+$text-color-gray: #666;
+$button-color-blue: #45cffe;
+$button-color-blue-hover: #00adfd;
+$button-color-blue-disabled: #7fdefd;
+$button-color-white-hover: #e9e9e9;
+$button-color-white-disabled: #e7e7e7;
+
+@mixin border-bottom {
+  border-bottom: 1px solid $border-color;
+}
+
+@mixin padding($side-padding: 20px) {
+  padding: 16px $side-padding;
+  padding-right: 0;
+}
+
+@mixin border-hover {
+  border-bottom: 2px solid dodgerblue;
+  padding-bottom: 14px;
+}
+
+.client-info-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  @include padding(45px);
+
+  .form-title {
+    font-weight: bold;
+    color: $text-color-blue;
+    font-style: italic;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .field-form {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      margin-right: 28px;
+      @include border-bottom();
+
+      label {
+        font-size: 0.7rem;
+        color: $text-color-blue;
+        font-weight: bold;
+      }
+
+      input,
+      option {
+        all: unset;
+        font-size: 0.8rem;
+        color: $text-color-gray;
+      }
+
+      select {
+        border: 0;
+        font-size: 0.8rem;
+        color: $text-color-gray;
+      }
+
+    }
+
+    .first-field-form {
+      margin-right: 0;
+    }
+  }
+
+  .fields {
+    width: 100%;
+    display: flex;
+
+    :last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.client-info-table {
+  display: flex;
+  flex-direction: column;
+  @include padding(45px);
+
+  .table-title {
+    font-size: 1rem;
+    font-weight: bold;
+    font-style: italic;
+    color: $text-color-blue;
+  }
+
+  .instruction {
+    font-size: 0.8rem;
+    color: $text-color-gray;
+  }
+
+  .subscribe-table {
+    margin-bottom: 20px;
+
+    .table-line-title {
+      th {
+        background-color: $border-color;
+        padding: 15px 20px;
+        font-size: 0.7rem;
+        color: $text-color-blue;
+        font-weight: bold;
+        text-align: left;
+      }
+    }
+
+    .table-line-data {
+      border-top: 1px solid $border-color;
+
+      td {
+        padding: 15px 20px;
+        font-size: 0.95rem;
+        text-align: left;
+        color: $text-color-gray;
+      }
+
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-self: flex-end;
+
+  button {
+    // all: unset;
+    cursor: pointer;
+  }
+
+  .button-cancel {
+    border: 1px solid $border-color;
+    background-color: white;
+    border-radius: 2px;
+    padding: 10px;
+    margin-right: 10px;
+
+    &:hover {
+      background-color: $button-color-white-hover;
+      border-color: $button-color-white-hover;
+    }
+  }
+
+  .button-confirm {
+    border: 1px solid $button-color-blue;
+    background-color: $button-color-blue;
+    border-radius: 2px;
+    padding: 10px;
+    color: white;
+
+    &:hover {
+      background-color: $button-color-blue-hover;
+      border-color: $button-color-blue-hover;
+    }
+  }
+
+  .disabled-confirm-button,
+  .disabled-confirm-button:hover {
+    background-color: $button-color-blue-disabled;
+    border-color: $button-color-blue-disabled;
+    color: white;
+    cursor: default;
+  }
+
+  .disabled-cancel-button,
+  .disabled-cancel-button:hover {
+    background-color: $button-color-white-disabled;
+    border-color: $button-color-white-disabled;
+    color: white;
+    cursor: default;
+  }
+
+}
+
+.button-options {
+  cursor: pointer;
+}

@@ -34,7 +34,7 @@ export class SidePageComponent implements OnInit {
   }
 
   receiveId(id: number) {
-    this.clientService.getById(id).subscribe(client  => this.clientFilter = client);
+    this.clientService.getById(id).subscribe(client => this.clientFilter = client);
   }
 
   clearFilter() {

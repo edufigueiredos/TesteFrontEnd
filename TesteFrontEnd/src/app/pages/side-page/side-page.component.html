@@ -7,4 +7,4 @@
 
 <app-client-list [clients]="clients | filterByName: filter" (sendIdEvent)="receiveId($event)" *ngIf="!clientFilter"></app-client-list>
 
-<app-client-info *ngIf="clientFilter" (clearClientFilterEvent)="clearFilter()"></app-client-info>
+<app-client-info *ngIf="clientFilter" (clearClientFilterEvent)="clearFilter()" [clientInfo]="clientFilter"></app-client-info>
