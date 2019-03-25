@@ -8,7 +8,6 @@ $text-color-gray: #666;
 
 @mixin padding($side-padding: 20px) {
   padding: 16px $side-padding;
-  padding-right: 0;
 }
 
 @mixin border-hover {
@@ -69,9 +68,13 @@ $text-color-gray: #666;
       font-weight: normal;
     }
 
-    .balance-value {
-      font-size: 1rem;
+    .balance {
+      font-size: 0.9rem;
       font-style: italic;
+    }
+
+    .big {
+      font-weight: bold;
     }
   }
 

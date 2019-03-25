@@ -6,6 +6,7 @@ import { NotaService } from 'src/app/shared/services/note.service';
 import { Nota } from 'src/app/shared/models/nota.model';
 import { Loja } from 'src/app/shared/models/loja.model';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-transaction',
@@ -14,7 +15,7 @@ import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 })
 export class TransactionComponent implements OnInit {
 
-  @Input() disabledTab = false;
+  disabledTab: boolean;
   noteForm: FormGroup;
   arrayNote: Nota[] = [];
   payments = ['Débito bancário', 'Cartão de crédito', 'Boleto', 'Dinheiro'];
@@ -28,15 +29,26 @@ export class TransactionComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private noteService: NotaService
+    private noteService: NotaService,
+    private dataService: DataService
   ) { }
 
   ngOnInit() {
     this.buildNoteForm();
+    this.dataService.loadedObservable.subscribe((active: boolean) => {
+      this.disabledTab = active;
+      this.loadNotes(active);
+    });
   }
 
-  loadNotes() {
-    this.noteService.getAll().subscribe(notes => this.arrayNote = notes);
+  loadNotes(active: boolean) {
+    if (active) {
+      this.noteService.getAll().subscribe(notes => this.arrayNote = notes);
+      this.noteForm.enable();
+    } else {
+      this.arrayNote = [];
+      this.noteForm.disable();
+    }
   }
 
   buildNoteForm() {
@@ -70,6 +82,10 @@ export class TransactionComponent implements OnInit {
     note.valor = parseFloat(value);
     this.arrayNote.push(note);
 
+    this.resetForm();
+  }
+
+  resetForm() {
     this.noteForm.reset();
   }
 

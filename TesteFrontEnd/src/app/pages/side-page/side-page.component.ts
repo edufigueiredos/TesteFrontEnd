@@ -4,8 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/app/shared/models/cliente.model';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { DataService } from 'src/app/shared/services/data.service';
 import { ClienteService } from 'src/app/shared/services/client.service';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-side-page',
@@ -34,7 +34,11 @@ export class SidePageComponent implements OnInit {
   }
 
   receiveId(id: number) {
-    this.clientService.getById(id).subscribe(client => this.clientFilter = client);
+    this.clientService.getById(id).subscribe((client) => {
+      this.clientFilter = client;
+      this.dataService.changeClient(client);
+    });
+    this.dataService.changeData(true);
   }
 
   clearFilter() {
