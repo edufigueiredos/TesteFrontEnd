@@ -1,0 +1,198 @@
+$border-color: #e6e6e6;
+$text-color-blue: #1e2b34;
+$text-color-gray: #666;
+$button-color-blue: #45cffe;
+$button-color-blue-hover: #00adfd;
+$button-color-blue-disabled: #7fdefd;
+$button-color-white-hover: #e9e9e9;
+$button-color-white-disabled: #e7e7e7;
+
+@mixin border-bottom {
+  border-bottom: 1px solid $border-color;
+}
+
+@mixin border-hover {
+  border-bottom: 2px solid dodgerblue;
+  padding-bottom: 14px;
+}
+
+@mixin display-flex($flex-direction: column) {
+  display: flex;
+  flex-direction: $flex-direction;
+}
+
+@mixin font-bold-blue {
+  font-weight: bold;
+  color: $text-color-blue;
+}
+
+@mixin font-gray($font-size: 0.8rem) {
+  font-size: $font-size;
+  color: $text-color-gray;
+}
+
+@mixin padding-border-buttons {
+  border-radius: 2px;
+  padding: 10px;
+}
+
+@mixin active-buttons($color: #45cffe) {
+  background-color: $color;
+  border: 1px solid $color;
+}
+
+@mixin disabled-buttons($color: #45cffe) {
+  border-color: $color;
+  background-color: $color;
+}
+
+.client-info-form {
+  @include display-flex;
+  margin: 16px 45px;
+  margin-top: 50px;
+
+  .form-title {
+    @include font-bold-blue;
+    font-style: italic;
+  }
+
+  form {
+    @include display-flex;
+    margin-top: 20px;
+
+    .field-form {
+      width: 125px;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      margin-right: 28px;
+      @include display-flex;
+      @include border-bottom();
+
+      label {
+        font-size: 0.7rem;
+        @include font-bold-blue;
+      }
+
+      input,
+      option {
+        all: unset;
+        @include font-gray;
+      }
+
+      select {
+        border: 0;
+        @include font-gray;
+      }
+    }
+
+    .first-field-form {
+      width: auto;
+      margin-right: 0;
+    }
+  }
+
+  .fields {
+    width: 100%;
+    flex-wrap: wrap;
+    @include display-flex(row);
+
+    :last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.client-info-table {
+  @include display-flex;
+  margin: 16px 45px;
+
+  .table-title {
+    font-size: 1rem;
+    @include font-bold-blue;
+    font-style: italic;
+  }
+
+  .instruction {
+    @include font-gray;
+  }
+
+  .subscribe-table {
+    margin-bottom: 20px;
+
+    .table-line-title {
+      th {
+        background-color: $border-color;
+        padding: 10px 3px;
+        font-size: 0.7rem;
+        text-align: left;
+        @include font-bold-blue;
+      }
+    }
+
+    .table-line-data {
+      border-top: 1px solid $border-color;
+      word-wrap: break-word;
+      width: 80px;
+
+      td {
+        padding: 10px 3px;
+        text-align: left;
+        @include font-gray(0.95rem);
+        width: 80px;
+
+        &:last-child {
+          width: 10px;
+        }
+      }
+    }
+  }
+}
+
+.buttons {
+  @include display-flex(row);
+  align-self: flex-end;
+
+  button {
+    cursor: pointer;
+  }
+
+  .button-cancel {
+    border: 1px solid $border-color;
+    background-color: white;
+    margin-right: 10px;
+    @include padding-border-buttons;
+
+    &:hover {
+      @include active-buttons($button-color-white-hover)
+    }
+  }
+
+  .button-confirm {
+    @include active-buttons($button-color-blue);
+    color: white;
+    @include padding-border-buttons;
+
+    &:hover {
+      @include active-buttons($button-color-blue-hover)
+    }
+  }
+
+  .disabled-confirm-button,
+  .disabled-confirm-button:hover {
+    color: white;
+    cursor: default;
+    @include disabled-buttons($button-color-blue-disabled);
+  }
+
+  .disabled-cancel-button,
+  .disabled-cancel-button:hover {
+    color: white;
+    cursor: default;
+    @include disabled-buttons($button-color-white-disabled);
+  }
+
+}
+
+.button-options {
+  cursor: pointer;
+}

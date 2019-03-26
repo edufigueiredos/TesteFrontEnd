@@ -1,0 +1,33 @@
+<div class="main-page-container">
+  <p class="title">Fidelidade</p>
+
+  <ul class="list tabs">
+    <li [ngClass]="{'tab-active': tabActive === 'transactions'}" (click)="changeTab('transactions')">TRANSAÇÕES</li>
+    <li [ngClass]="{'tab-active': tabActive === 'benefits'}" (click)="changeTab('benefits')">BENEFÍCIOS</li>
+    <li [ngClass]="{'tab-active': tabActive === 'history'}" (click)="changeTab('history')">HISTÓRICO</li>
+  </ul>
+
+  <ul class="list value">
+    <li>
+      <p class="balance-title">Saldo</p>
+      <p class="balance big">{{balance | number}}</p>
+    </li>
+    <li>
+      <p class="balance-title">Histórico</p>
+      <p class="balance">{{history | number}}</p>
+    </li>
+    <li>
+      <p class="balance-title">Utilizados</p>
+      <p class="balance">{{used | number}}</p>
+    </li>
+    <li>
+      <p class="balance-title">Perdidos</p>
+      <p class="balance">{{lost | number}}</p>
+    </li>
+  </ul>
+
+  <app-transaction *ngIf="tabActive === 'transactions'"></app-transaction>
+  <app-benefits *ngIf="tabActive === 'benefits'"></app-benefits>
+  <app-benefits *ngIf="tabActive === 'history'"></app-benefits>
+  
+</div>

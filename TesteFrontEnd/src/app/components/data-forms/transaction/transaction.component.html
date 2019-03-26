@@ -1,0 +1,80 @@
+<div class="client-info-form">
+  <p class="form-title">Adicionar nota</p>
+  <form [formGroup]="noteForm" (ngSubmit)="submitForm()">
+    <div class="field-form first-field-form">
+      <label for="shop">LOJA</label>
+      <input id="shop" formControlName="shop" type="text" placeholder="Razão social, nome fantasia ou CNPJ">
+    </div>
+    <div class="fields">
+      <div class="field-form">
+        <label for="note-number">Nº DA NOTA</label>
+        <input id="note-number" type="number" placeholder="----------" formControlName="numberNote">
+      </div>
+
+      <div class="field-form">
+        <label for="note-date">DATA DA NOTA</label>
+        <input id="note-date" type="date" formControlName="dateNote">
+      </div>
+
+      <div class="field-form">
+        <label for="note-payment">FORMA DE PAGAMENTO</label>
+        <select id="note-payment" formControlName="payment">
+          <option *ngFor="let payment of payments" [ngValue]="payment">{{payment}}</option>
+        </select>
+      </div>
+
+      <div class="field-form">
+        <label for="note-value">VALOR</label>
+        <input id="note-value" type="text" placeholder="R$" formControlName="value" [textMask]="{mask: currencyMask}">
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="button-cancel" type="button" (click)="resetForm()" [ngClass]="{'disabled-cancel-button': !disabledTab}"
+        [disabled]="!disabledTab">Cancelar</button>
+      <button class="button-confirm" type="submit" [ngClass]="{'disabled-confirm-button': !noteForm.valid}"
+        [disabled]="!noteForm.valid">Adicionar</button>
+    </div>
+  </form>
+</div>
+
+
+<div class="client-info-table">
+  <p class="table-title">Cadastrar notas</p>
+  <p class="instruction">Você precisa confirmar o cadastro dessa lista de notas</p>
+
+  <table class="subscribe-table">
+    <tr class="table-line-title">
+      <th>LOJA</th>
+      <th>NO DA NOTA</th>
+      <th>DATA DA NOTA</th>
+      <th>CADASTRO</th>
+      <th>VALOR</th>
+      <th></th>
+    </tr>
+
+    <tr class="table-line-data" *ngIf="!arrayNote.length">
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td></td>
+    </tr>
+
+    <tr class="table-line-data" *ngFor="let note of arrayNote">
+      <td>{{note.loja.nomeFantasia}}</td>
+      <td>{{note.id}}</td>
+      <td>{{note.dataNota}}</td>
+      <td>{{note.dataCadastro}}</td>
+      <td>{{note.valor | currency: 'R$'}}</td>
+      <td><img class="button-options" src="../../../../assets/baseline-more_vert-24px.svg" alt="Opções"></td>
+    </tr>
+
+  </table>
+  <div class="buttons">
+    <button class="button-cancel" type="button" (click)="clearArrayNote()" [ngClass]="{'disabled-cancel-button' : !disabledTab}"
+      [disabled]="!disabledTab">Cancelar</button>
+    <button class="button-confirm" type="button" (click)="postNotes()" [ngClass]="{'disabled-confirm-button' : !arrayNote.length}"
+      [disabled]="!arrayNote.length">Adicionar</button>
+  </div>
+</div>

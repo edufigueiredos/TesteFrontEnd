@@ -1,0 +1,11 @@
+<div class="client-container-list">
+  <div class="client-container-list-info" *ngIf="!clients.length">
+    <span class="no-clients">Cliente não encontrado</span>
+  </div>
+
+  <div class="client-container-list-info" *ngFor="let client of clients" (click)="sendIdToSidePage(client.id)">
+    <span class="email">{{client.email}}</span>
+    <span class="name">{{client.nome}}</span>
+    <span class="cpf">{{client.cpf | cpf}}</span>
+  </div>
+</div>
