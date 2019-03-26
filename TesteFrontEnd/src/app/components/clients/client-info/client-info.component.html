@@ -9,21 +9,21 @@
         <img [src]="clientInfo.thumb" [alt]="clientInfo.nome" *ngIf="clientInfo.thumb" >
       </div>
       <p class="name">{{clientInfo.nome}}, {{clientInfo.idade}}</p>
-      <p class="data">CPF: {{clientInfo.cpf}}</p>
+      <p class="data">CPF: {{clientInfo.cpf | cpf}}</p>
     </div>
   </div>
 
-  <div class="client-sub-info border">
+  <div class="client-sub-info border" *ngIf="clientInfo.obs">
     <p class="title">OBSERVAÇÕES IMPORTANTES</p>
     <p class="description">{{clientInfo.obs}}</p>
   </div>
 
-  <div class="client-sub-info border">
+  <div class="client-sub-info border" *ngIf="clientInfo.email">
     <p class="title">E-MAIL</p>
     <p class="description">{{clientInfo.email}}</p>
   </div>
 
-  <div class="client-sub-info border">
+  <div class="client-sub-info border" *ngIf="clientInfo.telefone">
     <p class="title">TELEFONE</p>
     <p class="description">
         +{{clientInfo.telefone.pais}}
@@ -32,7 +32,7 @@
     </p>
   </div>
 
-  <div class="client-sub-info border">
+  <div class="client-sub-info border" *ngIf="clientInfo.endereco">
     <p class="title">ENDEREÇO</p>
     <p class="description">
         {{clientInfo.endereco.tipo}}

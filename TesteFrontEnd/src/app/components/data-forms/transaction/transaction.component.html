@@ -72,9 +72,9 @@
 
   </table>
   <div class="buttons">
-    <button class="button-cancel" type="reset" [ngClass]="{'disabled-cancel-button' : !disabledTab}"
+    <button class="button-cancel" type="button" (click)="clearArrayNote()" [ngClass]="{'disabled-cancel-button' : !disabledTab}"
       [disabled]="!disabledTab">Cancelar</button>
-    <button class="button-confirm" type="submit" [ngClass]="{'disabled-confirm-button' : !arrayNote.length}"
+    <button class="button-confirm" type="button" (click)="postNotes()" [ngClass]="{'disabled-confirm-button' : !arrayNote.length}"
       [disabled]="!arrayNote.length">Adicionar</button>
   </div>
 </div>

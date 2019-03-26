@@ -18,6 +18,9 @@ export class ClientInfoComponent {
     private dataService: DataService
   ) { }
 
+  // Primeiro aciona o BehaviorSubject para avisar a outros components que devem
+  // desativar os formulários e não carregar alguns dados, e segundo, enviar por EventEmitter
+  // um a função do component SidePage limpar o cliente filtrado
   clearClientFilter() {
     this.dataService.changeData(false);
     this.clearClientFilterEvent.emit();

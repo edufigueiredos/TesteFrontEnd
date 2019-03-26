@@ -25,4 +25,14 @@ $border-left-side-page: #ccc;
     background-color: $main-page-background;
     @include container-flex-column();
   }
+
+  @media screen and (max-width: 930px) {
+    .side-page {
+      width: 30%;
+    }
+
+    .main-page {
+      width: 70%;
+    }
+  }
 }

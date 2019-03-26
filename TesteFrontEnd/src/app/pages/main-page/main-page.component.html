@@ -2,9 +2,9 @@
   <p class="title">Fidelidade</p>
 
   <ul class="list tabs">
-    <li>TRANSAÇÕES</li>
-    <li>BENEFÍCIOS</li>
-    <li>HISTÓRICO</li>
+    <li [ngClass]="{'tab-active': tabActive === 'transactions'}" (click)="changeTab('transactions')">TRANSAÇÕES</li>
+    <li [ngClass]="{'tab-active': tabActive === 'benefits'}" (click)="changeTab('benefits')">BENEFÍCIOS</li>
+    <li [ngClass]="{'tab-active': tabActive === 'history'}" (click)="changeTab('history')">HISTÓRICO</li>
   </ul>
 
   <ul class="list value">
@@ -26,6 +26,8 @@
     </li>
   </ul>
 
-  <app-transaction></app-transaction>
-
+  <app-transaction *ngIf="tabActive === 'transactions'"></app-transaction>
+  <app-benefits *ngIf="tabActive === 'benefits'"></app-benefits>
+  <app-benefits *ngIf="tabActive === 'history'"></app-benefits>
+  
 </div>

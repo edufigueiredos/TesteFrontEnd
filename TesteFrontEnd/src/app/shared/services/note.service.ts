@@ -20,6 +20,17 @@ export class NotaService {
         );
     }
 
+    create(notes: Nota[]): Observable<Nota[]> {
+        return this.http.post(this.apiPath, notes).pipe(
+            catchError(this.handleError),
+            map(this.jsonDataToNotes)
+        );
+    }
+
+    private jsonDataToNote(jsonData: any): Nota {
+        return jsonData as Nota;
+    }
+
     private jsonDataToNotes(jsonData: any[]): Nota[] {
         const client: Nota[] = [];
         jsonData.forEach(data => client.push(data as Nota));

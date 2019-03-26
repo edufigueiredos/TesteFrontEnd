@@ -35,12 +35,17 @@ export class TransactionComponent implements OnInit {
 
   ngOnInit() {
     this.buildNoteForm();
+
+    // Faz o subscribe no BehaviorSubject para ficar escutando qual aba está ativa.
     this.dataService.loadedObservable.subscribe((active: boolean) => {
       this.disabledTab = active;
       this.loadNotes(active);
     });
   }
 
+  // Carrega todas as Notas cadastrada para serem carregadas na tabela.
+  // PS: Eu não sei realmente era pra você isso, mas fiz assim para pelo menos ter alguma Nota carregada
+  // ao abrir a página.
   loadNotes(active: boolean) {
     if (active) {
       this.noteService.getAll().subscribe(notes => this.arrayNote = notes);
@@ -51,6 +56,7 @@ export class TransactionComponent implements OnInit {
     }
   }
 
+  // Criando o ReactiveForm de Nota.
   buildNoteForm() {
     this.noteForm = this.formBuilder.group({
       shop: [null, [Validators.required]],
@@ -61,6 +67,7 @@ export class TransactionComponent implements OnInit {
     });
   }
 
+  // Tratando os dados e adicionando no array de Notas
   submitForm() {
     const note = new Nota();
     const shop = new Loja();
@@ -85,8 +92,21 @@ export class TransactionComponent implements OnInit {
     this.resetForm();
   }
 
+  // Limpa o formulário
   resetForm() {
     this.noteForm.reset();
+  }
+
+  // Faz o post das notas cadastrada.
+  // PS: Não consegui testar a tempo, pois não sei como o AngularInMemoryWebApi
+  // se comporta com o método post.
+  postNotes() {
+    this.noteService.create(this.arrayNote).subscribe();
+  }
+
+  // Limpa o array de Notas.
+  clearArrayNote() {
+    this.arrayNote = [];
   }
 
 }

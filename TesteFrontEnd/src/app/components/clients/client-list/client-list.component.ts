@@ -14,6 +14,7 @@ export class ClientListComponent {
 
   constructor() { }
 
+  // Enviar para o component SidePage o ID do cliente clicado na lista de clientes.
   sendIdToSidePage(id: number) {
     this.sendIdEvent.emit(id);
   }

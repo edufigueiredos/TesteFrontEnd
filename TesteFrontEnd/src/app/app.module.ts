@@ -7,14 +7,15 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ClientListComponent } from './components/clients/client-list/client-list.component';
 import { SidePageComponent } from './pages/side-page/side-page.component';
+import { ClientInfoComponent } from './components/clients/client-info/client-info.component';
 import { SidePageModule } from './pages/side-page/side-page.module';
 import { MainPageModule } from './pages/main-page/main-page.module';
+import { DataFormsModule } from './components/data-forms/data-forms.module';
 import { FilterByName } from './shared/pipes/filter-by-name.pipe';
-import { ClientInfoComponent } from './components/clients/client-info/client-info.component';
+import { CpfPipe } from './shared/pipes/cpf.pipe';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDatabase } from './in-memory-database';
-import { DataFormsModule } from './components/data-forms/data-forms.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DataFormsModule } from './components/data-forms/data-forms.module';
     ClientListComponent,
     ClientInfoComponent,
     SidePageComponent,
-    FilterByName
+    FilterByName,
+    CpfPipe
   ],
   imports: [
     BrowserModule,

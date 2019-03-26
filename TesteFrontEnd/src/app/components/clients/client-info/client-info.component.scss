@@ -26,6 +26,11 @@ $text-color-gray: #666;
   border-radius: 50%;
 }
 
+@mixin text-info($font-size: 0.75rem) {
+  font-size: $font-size;
+  color: $text-color-gray;
+}
+
 .client-info-container {
   @include flex-column();
   padding: 0 25px;
@@ -48,21 +53,18 @@ $text-color-gray: #666;
     .back-icon {
       grid-column-start: 1;
       grid-column-end: 2;
-      justify-self: end;
       place-self: center;
-      @include flex-column();
-      justify-content: center;
       cursor: pointer;
     }
 
     .client-main-info {
       grid-column-start: 2;
       grid-column-end: 3;
-      justify-self: end;
       place-self: center;
       text-align: center;
 
       .photo img {
+        width: 100%;
         @include rounded-border();
       }
 
@@ -72,8 +74,7 @@ $text-color-gray: #666;
       }
 
       .data {
-        font-size: 0.9rem;
-        color: $text-color-gray;
+        @include text-info(0.9rem);
       }
     }
   }
@@ -83,13 +84,12 @@ $text-color-gray: #666;
     padding: 20px 0;
 
     .title {
+      @include text-info;
       @include text-bold();
-      font-size: 0.75rem;
     }
 
     .description {
-      font-size: 0.75rem;
-      color: $text-color-gray;
+      @include text-info;
     }
   }
 }

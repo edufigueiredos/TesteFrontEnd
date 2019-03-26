@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { MainPageComponent } from './pages/main-page/main-page.component';
-import { ClientListComponent } from './components/clients/client-list/client-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },

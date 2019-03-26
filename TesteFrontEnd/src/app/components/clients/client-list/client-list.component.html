@@ -6,6 +6,6 @@
   <div class="client-container-list-info" *ngFor="let client of clients" (click)="sendIdToSidePage(client.id)">
     <span class="email">{{client.email}}</span>
     <span class="name">{{client.nome}}</span>
-    <span class="cpf">{{client.cpf}}</span>
+    <span class="cpf">{{client.cpf | cpf}}</span>
   </div>
 </div>

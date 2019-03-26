@@ -13,5 +13,4 @@ export class SidePageResolver implements Resolve<Observable<Cliente[]>> {
     }
 
     constructor(private clienteService: ClienteService) { }
-
 }

@@ -11,14 +11,19 @@ $text-color-gray: #666;
   border-right: 0;
 }
 
+@mixin text-info($font-size: 0.9rem) {
+  color: $text-color-gray;
+  font-size: $font-size;
+}
+
 .client-container-list {
 
-    padding: 0 25px;
+  padding: 0 25px;
 
-    :hover {
-      background-color: #eeeeee;
-      cursor: pointer;
-    }
+  :hover {
+    background-color: #eeeeee;
+    cursor: pointer;
+  }
 
   &-info {
     display: flex;
@@ -32,27 +37,25 @@ $text-color-gray: #666;
     }
 
     .no-clients {
+      @include text-info(1rem);
       text-align: center;
-      color: $text-color-gray;
       font-style: italic;
       line-height: 3rem;
     }
 
     .email {
-      color: $text-color-gray;
-      font-size: 0.9rem;
+      @include text-info;
     }
 
     .name {
+      @include text-info(1rem);
       color: $text-color-blue;
       font-weight: bolder;
       font-style: italic;
     }
 
     .cpf {
-      color: $text-color-gray;
-      font-size: 0.9rem;
+      @include text-info;
     }
-
   }
 }
